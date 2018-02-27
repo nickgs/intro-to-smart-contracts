@@ -1,0 +1,15 @@
+{
+  "name": "into_to_ethereum",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nick Selvaggio <nickgs1@gmail.com> (http://nickgs.com)",
+  "license": "ISC",
+  "dependencies": {
+    "solc": "^0.4.11",
+    "web3": "^0.19.0"
+  }
+}
