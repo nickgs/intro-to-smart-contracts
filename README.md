@@ -6,6 +6,7 @@ This is the code accompaning my talk on introducing folks to the ideas of smart 
 - [Metamask](https://metamask.io/)
 - [Ganache](http://truffleframework.com/ganache/)
 - [Truffle](http://truffleframework.com)
+- [Remix](https://remix.ethereum.org)
 
 #### References
 - [Current Gas Prices](https://ethgasstation.info/)
