@@ -18,6 +18,9 @@ var contractName = ":" + process.argv[3];
 var compiledContract = "";
 var contractABI = "";
 
+/*******************************
+ * Simple illustration of compiling a contract
+ *******************************/
 var compileContract = function(c) {
   // Compile the contract.
   compiledContract = solc.compile(c);
@@ -28,19 +31,21 @@ var compileContract = function(c) {
   console.log("--------------");
   console.log(compiledContract.contracts[contractName].interface);
   console.log("--------------");
+  console.log("Contract is compiled! :)")
   
   deployContract(compiledContract, contractABI);
 }
 
+/*******************************
+ * Simple illustration of deploying a contract
+ *******************************/
 var deployContract = function(contract, abi) {
   var contractFactory = w3.eth.contract(abi);
-
   
   var estimateGas = w3.eth.estimateGas({
     to: w3.eth.accounts[0],
     data: '0x' + contract.contracts[contractName].bytecode,
   });
- 
 
   var gasPrice = w3.eth.gasPrice.toString();
   console.log("--------------");
@@ -55,18 +60,14 @@ var deployContract = function(contract, abi) {
     gas: 4712388,
     gasPrice: gasPrice
   });
-
-
-  //console.log(deployed);
-  
+  console.log("Deployed!"); 
 }
 
+
+// Read the file and kick off the process.
 fs.readFile(contractFile, 'utf8', function(err, data) {
   if(err) {
     return console.error(err);
   }
   compileContract(data);
 });
-
-
-//[ { constant: true, inputs: [], name: 'displayMessage', outputs: [ [Object] ], payable: false, stateMutability: 'view', type: 'function' } ]
